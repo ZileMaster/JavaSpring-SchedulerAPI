@@ -4,6 +4,7 @@ import in.msproject1.schoolscheduler.schedulerAPI.DAO.Termin.ITerminDAO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class TerminService implements ITerminService{
     @Autowired
     ITerminDAO terminDAO;
 
+    @Transactional
     @Override
     public List<Termin> GetTerminTables() {
         try {
@@ -22,6 +24,7 @@ public class TerminService implements ITerminService{
         }
     }
 
+    @Transactional
     @Override
     public Termin GetTermin(int id) {
         try {
@@ -31,6 +34,7 @@ public class TerminService implements ITerminService{
         }
     }
 
+    @Transactional
     @Override
     public Termin saveTermin(Termin tr) {
         try {
@@ -40,6 +44,7 @@ public class TerminService implements ITerminService{
         }
     }
 
+    @Transactional
     @Override
     public Boolean deleteTermin(int id) {
         try {
@@ -49,6 +54,7 @@ public class TerminService implements ITerminService{
         }
     }
 
+    @Transactional
     @Override
     public Termin updateTermin(Termin tr) {
         try {

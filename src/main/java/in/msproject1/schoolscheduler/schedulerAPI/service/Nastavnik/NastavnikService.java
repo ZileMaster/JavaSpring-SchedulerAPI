@@ -4,6 +4,7 @@ import in.msproject1.schoolscheduler.schedulerAPI.DAO.Nastavnik.INastavnikDAO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class NastavnikService implements INastavnikService{
     @Autowired
     private INastavnikDAO nastavnikDAO;
 
+    @Transactional
     @Override
     public List<Nastavnik> GetNastavnikTables() {
         try {
@@ -22,6 +24,7 @@ public class NastavnikService implements INastavnikService{
         }
     }
 
+    @Transactional
     @Override
     public Nastavnik GetNastavnik(int id) {
         try {
@@ -31,6 +34,7 @@ public class NastavnikService implements INastavnikService{
         }
     }
 
+    @Transactional
     @Override
     public Nastavnik saveNastavnik(Nastavnik nast) {
 
@@ -41,6 +45,7 @@ public class NastavnikService implements INastavnikService{
         }
     }
 
+    @Transactional
     @Override
     public Boolean deleteNastavnik(int id) {
         try {
@@ -50,6 +55,7 @@ public class NastavnikService implements INastavnikService{
         }
     }
 
+    @Transactional
     @Override
     public Nastavnik updateNastavnik(Nastavnik nast) {
         try {

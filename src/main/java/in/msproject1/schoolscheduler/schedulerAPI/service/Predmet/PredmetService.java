@@ -4,6 +4,7 @@ import in.msproject1.schoolscheduler.schedulerAPI.DAO.Predmet.IPredmetDAO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class PredmetService implements IPredmetService{
     @Autowired
     private IPredmetDAO predmetDAO;
 
+    @Transactional
     @Override
     public List<Predmet> GetPredmetTables() {
         try {
@@ -22,6 +24,7 @@ public class PredmetService implements IPredmetService{
         }
     }
 
+    @Transactional
     @Override
     public Predmet GetPredmet(int id) {
         try {
@@ -31,6 +34,7 @@ public class PredmetService implements IPredmetService{
         }
     }
 
+    @Transactional
     @Override
     public Predmet savePredmet(Predmet pred) {
         try {
@@ -40,6 +44,7 @@ public class PredmetService implements IPredmetService{
         }
     }
 
+    @Transactional
     @Override
     public Boolean deletePredmet(int id) {
         try {
@@ -49,6 +54,7 @@ public class PredmetService implements IPredmetService{
         }
     }
 
+    @Transactional
     @Override
     public Predmet updatePredmet(Predmet pred) {
         try {

@@ -4,6 +4,7 @@ import in.msproject1.schoolscheduler.schedulerAPI.DAO.Ucionica.IUcionicaDAO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Ucionica;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class UcionicaService implements IUcionicaService{
     @Autowired
     private IUcionicaDAO ucionicaDAO;
 
+    @Transactional
     @Override
     public List<Ucionica> GetUcionicaTables() {
         try {
@@ -22,6 +24,7 @@ public class UcionicaService implements IUcionicaService{
         }
     }
 
+    @Transactional
     @Override
     public Ucionica GetUcionica(int id) {
         try {
@@ -31,6 +34,7 @@ public class UcionicaService implements IUcionicaService{
         }
     }
 
+    @Transactional
     @Override
     public Ucionica saveUcionica(Ucionica uc) {
         try {
@@ -40,6 +44,7 @@ public class UcionicaService implements IUcionicaService{
         }
     }
 
+    @Transactional
     @Override
     public Boolean deleteUcionica(int id) {
         try {
@@ -49,6 +54,7 @@ public class UcionicaService implements IUcionicaService{
         }
     }
 
+    @Transactional
     @Override
     public Ucionica updateUcionica(Ucionica uc) {
         try {

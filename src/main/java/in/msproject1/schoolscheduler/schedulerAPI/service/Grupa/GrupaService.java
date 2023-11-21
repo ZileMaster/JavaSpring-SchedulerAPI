@@ -4,6 +4,7 @@ import in.msproject1.schoolscheduler.schedulerAPI.DAO.Grupa.IGrupaDAO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Grupa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class GrupaService implements IGrupaService{
     @Autowired
     private IGrupaDAO grupaDAO;
 
+    @Transactional
     @Override
     public List<Grupa> GetGrupaTables() {
         try{
@@ -23,6 +25,7 @@ public class GrupaService implements IGrupaService{
         }
     }
 
+    @Transactional
     @Override
     public Grupa GetGrupa(int id) {
         try{
@@ -33,6 +36,7 @@ public class GrupaService implements IGrupaService{
         }
     }
 
+    @Transactional
     @Override
     public Grupa saveGrupa(Grupa gr) {
         try{
@@ -43,6 +47,7 @@ public class GrupaService implements IGrupaService{
         }
     }
 
+    @Transactional
     @Override
     public Boolean deleteGrupa(int id) {
         try{

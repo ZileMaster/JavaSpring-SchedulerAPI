@@ -1,11 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.DAO.Predmet;
 
 import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet;
-<<<<<<< HEAD
-import org.springframework.stereotype.Repository;
-
-=======
-import in.msproject1.schoolscheduler.schedulerAPI.model.Tester;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -13,16 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
->>>>>>> 2cc3cced8c85b5d7f893ea6863adeb5057370878
 import java.util.List;
 
 @Repository
 public class dbPredmetDAO implements IPredmetDAO{
-<<<<<<< HEAD
-    @Override
-    public List<Predmet> GetPredmetAll() {
-        return null;
-=======
 
     @Autowired
     private EntityManager entityManager;
@@ -38,19 +27,10 @@ public class dbPredmetDAO implements IPredmetDAO{
             // Handle the exception appropriately
             return Collections.emptyList(); // or another default value
         }
->>>>>>> 2cc3cced8c85b5d7f893ea6863adeb5057370878
     }
 
     @Override
     public Predmet GetPredmetSingle(int id) {
-<<<<<<< HEAD
-        return null;
-    }
-
-    @Override
-    public Predmet savePredmet(Predmet tr) {
-        return null;
-=======
         try {
             Session currentSession = entityManager.unwrap(Session.class);
             Query<Predmet> query = currentSession.createQuery("from Predmet where id = :id", Predmet.class);
@@ -75,14 +55,10 @@ public class dbPredmetDAO implements IPredmetDAO{
             e.printStackTrace();
             return new Predmet();
         }
->>>>>>> 2cc3cced8c85b5d7f893ea6863adeb5057370878
     }
 
     @Override
     public Boolean deletePredmet(int id) {
-<<<<<<< HEAD
-        return null;
-=======
         try{
             Session currentSession = entityManager.unwrap(Session.class);
             Predmet prToDelete = currentSession.get(Predmet.class, id);
@@ -99,6 +75,5 @@ public class dbPredmetDAO implements IPredmetDAO{
             // Handle the exception appropriately
             return false; // Deletion failed
         }
->>>>>>> 2cc3cced8c85b5d7f893ea6863adeb5057370878
     }
 }
