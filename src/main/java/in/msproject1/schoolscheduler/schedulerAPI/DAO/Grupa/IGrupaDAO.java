@@ -8,9 +8,9 @@ import java.util.List;
 public interface IGrupaDAO {
     List<Grupa> GetGrupaAll();
 
-    Nastavnik GetGrupaSingle(int id);
+    Grupa GetGrupaSingle(int id);
 
-    Nastavnik saveGrupa(Grupa tr);
+    Grupa saveGrupa(Grupa tr);
 
     Boolean deleteGrupa(int id);
 }

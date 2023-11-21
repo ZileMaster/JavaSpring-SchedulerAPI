@@ -16,12 +16,12 @@ public class dbGrupaDAO implements IGrupaDAO{
     }
 
     @Override
-    public Nastavnik GetGrupaSingle(int id) {
+    public Grupa GetGrupaSingle(int id) {
         return null;
     }
 
     @Override
-    public Nastavnik saveGrupa(Grupa tr) {
+    public Grupa saveGrupa(Grupa tr) {
         return null;
     }
 

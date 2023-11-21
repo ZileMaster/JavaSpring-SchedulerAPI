@@ -1,34 +1,60 @@
 package in.msproject1.schoolscheduler.schedulerAPI.service.Ucionica;
 
+import in.msproject1.schoolscheduler.schedulerAPI.DAO.Ucionica.IUcionicaDAO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Ucionica;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UcionicaService implements IUcionicaService{
+
+    @Autowired
+    private IUcionicaDAO ucionicaDAO;
+
     @Override
     public List<Ucionica> GetUcionicaTables() {
-        return null;
+        try {
+            return ucionicaDAO.GetUcionicaAll();
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     @Override
     public Ucionica GetUcionica(int id) {
-        return null;
+        try {
+            return ucionicaDAO.GetUcionicaSingle(id);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     @Override
     public Ucionica saveUcionica(Ucionica uc) {
-        return null;
+        try {
+            return ucionicaDAO.saveUcionica(uc);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     @Override
     public Boolean deleteUcionica(int id) {
-        return null;
+        try {
+            return ucionicaDAO.deleteUcionica(id);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     @Override
     public Ucionica updateUcionica(Ucionica uc) {
-        return null;
+        try {
+            return ucionicaDAO.saveUcionica(uc);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 }
