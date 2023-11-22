@@ -1,8 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
 
-import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin;
-import in.msproject1.schoolscheduler.schedulerAPI.service.Predmet.IPredmetService;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Termin.ITerminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

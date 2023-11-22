@@ -1,7 +1,7 @@
 package in.msproject1.schoolscheduler.schedulerAPI.service.Predmet;
 
 import in.msproject1.schoolscheduler.schedulerAPI.DAO.Predmet.IPredmetDAO;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.Predmet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

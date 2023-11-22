@@ -1,10 +1,8 @@
 package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
 
 
-import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Tester;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik.Nastavnik;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Nastavnik.INastavnikService;
-import in.msproject1.schoolscheduler.schedulerAPI.service.Tester.TesterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +23,12 @@ public class NastavnikController {
     @PostMapping("/add")
     public Nastavnik saveNastavnik(@RequestBody Nastavnik nastavnik) {
         return nastavnikService.saveNastavnik(nastavnik);
+    }
+
+    @GetMapping("/custom")
+    public Object getNastavnikCustom(@RequestParam String ime, @RequestParam String prezime)
+    {
+        return nastavnikService.GetNastavnikCustom(ime, prezime);
     }
 
     @PutMapping("/update")

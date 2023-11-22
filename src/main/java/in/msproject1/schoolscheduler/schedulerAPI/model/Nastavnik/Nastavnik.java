@@ -1,4 +1,4 @@
-package in.msproject1.schoolscheduler.schedulerAPI.model;
+package in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
 
 import jakarta.persistence.*;
 
@@ -21,7 +21,7 @@ public class Nastavnik {
     private String Zvanje;
 
     @Column
-    private int predmeti;
+    private String predmeti;
 
     public int getNastavnikID() {
         return nastavnikID;
@@ -55,11 +55,11 @@ public class Nastavnik {
         Zvanje = zvanje;
     }
 
-    public int getPredmeti() {
+    public String getPredmeti() {
         return predmeti;
     }
 
-    public void setPredmeti(int predmeti) {
+    public void setPredmeti(String predmeti) {
         this.predmeti = predmeti;
     }
 

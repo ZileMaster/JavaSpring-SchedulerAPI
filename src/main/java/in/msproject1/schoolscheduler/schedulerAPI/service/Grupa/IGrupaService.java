@@ -1,7 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.service.Grupa;
 
 import in.msproject1.schoolscheduler.schedulerAPI.model.Grupa;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
 
 import java.util.List;
 

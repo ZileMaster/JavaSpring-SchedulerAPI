@@ -1,9 +1,7 @@
 package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
 
-import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Ucionica;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.Predmet;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Predmet.IPredmetService;
-import in.msproject1.schoolscheduler.schedulerAPI.service.Ucionica.IUcionicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +22,7 @@ public class PredmetController {
 
     @PostMapping("/add")
     public Predmet savePredmet(@RequestBody Predmet pr) {
+
         return predmetService.savePredmet(pr);
     }
 

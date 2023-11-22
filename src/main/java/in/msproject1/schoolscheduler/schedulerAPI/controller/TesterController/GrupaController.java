@@ -1,9 +1,7 @@
 package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
 
 import in.msproject1.schoolscheduler.schedulerAPI.model.Grupa;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Grupa.IGrupaService;
-import in.msproject1.schoolscheduler.schedulerAPI.service.Nastavnik.INastavnikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

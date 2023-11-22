@@ -1,6 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.DAO.Predmet;
 
-import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.Predmet;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -45,6 +45,11 @@ public class dbPredmetDAO implements IPredmetDAO{
     @Override
     public Predmet savePredmet(Predmet pred) {
         try {
+            if (pred.getESPB() == 0)
+            {
+                pred.setESPB(6);
+            }
+
             Session currentSession = entityManager.unwrap(Session.class);
             currentSession.saveOrUpdate(pred);
             currentSession.flush();

@@ -1,7 +1,7 @@
 package in.msproject1.schoolscheduler.schedulerAPI.service.Nastavnik;
 
 import in.msproject1.schoolscheduler.schedulerAPI.DAO.Nastavnik.INastavnikDAO;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik.Nastavnik;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,6 +60,15 @@ public class NastavnikService implements INastavnikService{
     public Nastavnik updateNastavnik(Nastavnik nast) {
         try {
             return nastavnikDAO.saveNastavnik(nast);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public Object GetNastavnikCustom(String ime, String prezime) {
+        try {
+            return nastavnikDAO.GetNastavnikCustom(ime, prezime);
         } catch (Exception e) {
             throw e;
         }

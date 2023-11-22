@@ -1,7 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.DAO.Predmet;
 
-import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Termin;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.Predmet;
 
 import java.util.List;
 

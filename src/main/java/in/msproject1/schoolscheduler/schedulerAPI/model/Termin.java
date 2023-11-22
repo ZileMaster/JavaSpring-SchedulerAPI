@@ -18,7 +18,13 @@ public class Termin {
     private int ucionicaID;
 
     @Column
-    private int grupaID;
+    private int groupID;
+
+    @Column
+    private int predmetID;
+
+    @Column
+    private String tipNastave;
 
     @Column
     private int startTime;
@@ -28,6 +34,22 @@ public class Termin {
 
     @Column
     private String day;
+
+    public int getPredmetID() {
+        return predmetID;
+    }
+
+    public void setPredmetID(int predmetID) {
+        this.predmetID = predmetID;
+    }
+
+    public String getTipNastave() {
+        return tipNastave;
+    }
+
+    public void setTipNastave(String tipNastave) {
+        this.tipNastave = tipNastave;
+    }
 
     public int getTerminID() {
         return terminID;
@@ -54,11 +76,11 @@ public class Termin {
     }
 
     public int getGrupaID() {
-        return grupaID;
+        return groupID;
     }
 
-    public void setGrupaID(int grupaID) {
-        this.grupaID = grupaID;
+    public void setGrupaID(int groupID) {
+        this.groupID = groupID;
     }
 
     public int getStartTime() {
@@ -91,7 +113,7 @@ public class Termin {
                 "terminID=" + terminID +
                 ", nastavnikID=" + nastavnikID +
                 ", ucionicaID=" + ucionicaID +
-                ", grupaID=" + grupaID +
+                ", groupID=" + groupID +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", day='" + day + '\'' +

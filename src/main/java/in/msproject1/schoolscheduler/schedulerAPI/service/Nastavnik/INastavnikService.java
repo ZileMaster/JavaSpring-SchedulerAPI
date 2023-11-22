@@ -1,7 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.service.Nastavnik;
 
-import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Tester;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik.Nastavnik;
 
 import java.util.List;
 
@@ -15,4 +14,6 @@ public interface INastavnikService {
     Boolean deleteNastavnik(int id);
 
     Nastavnik updateNastavnik(Nastavnik nast);
+
+    Object GetNastavnikCustom(String ime, String prezime);
 }

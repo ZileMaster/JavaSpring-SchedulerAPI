@@ -1,7 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.DAO.Grupa;
 
 import in.msproject1.schoolscheduler.schedulerAPI.model.Grupa;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
