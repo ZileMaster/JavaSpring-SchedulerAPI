@@ -3,7 +3,9 @@ package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Termin.ITerminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 
@@ -21,11 +23,15 @@ public class TerminController {
 
     @PostMapping("/add")
     public Termin saveTermin(@RequestBody Termin tr) {
+
+        CheckValuesOfTermin(tr);
+
         return terminService.saveTermin(tr);
     }
 
     @PutMapping("/update")
     public Termin updateTermin(@RequestBody Termin tr) {
+        CheckValuesOfTermin(tr);
         return terminService.updateTermin(tr);
     }
 
@@ -38,5 +44,15 @@ public class TerminController {
     public Boolean deleteTermin(@RequestParam int id) {
         return terminService.deleteTermin(id);
     }
+
+    private void CheckValuesOfTermin(@RequestBody Termin tr) {
+        if(tr.getGrupaID() == null || tr.getPredmetID() == null
+                || tr.getNastavnikID() == null || tr.getStartTime() == null || tr.getEndTime() == null
+                || tr.getUcionicaID() == null || tr.getDay() == null || tr.getTipNastave() == null)
+        {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Invalid values given.");
+        }
+    }
+
 
 }

@@ -9,37 +9,37 @@ public class Termin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int terminID;
+    private Integer terminID;
 
     @Column
-    private int nastavnikID;
+    private Integer nastavnikID;
 
     @Column
-    private int ucionicaID;
+    private Integer ucionicaID;
 
     @Column
-    private int groupID;
+    private Integer groupID;
 
     @Column
-    private int predmetID;
+    private Integer predmetID;
 
     @Column
     private String tipNastave;
 
     @Column
-    private int startTime;
+    private Integer startTime;
 
     @Column
-    private int endTime;
+    private Integer endTime;
 
     @Column
     private String day;
 
-    public int getPredmetID() {
+    public Integer getPredmetID() {
         return predmetID;
     }
 
-    public void setPredmetID(int predmetID) {
+    public void setPredmetID(Integer predmetID) {
         this.predmetID = predmetID;
     }
 
@@ -51,51 +51,51 @@ public class Termin {
         this.tipNastave = tipNastave;
     }
 
-    public int getTerminID() {
+    public Integer getTerminID() {
         return terminID;
     }
 
-    public void setTerminID(int terminID) {
+    public void setTerminID(Integer terminID) {
         this.terminID = terminID;
     }
 
-    public int getNastavnikID() {
+    public Integer getNastavnikID() {
         return nastavnikID;
     }
 
-    public void setNastavnikID(int nastavnikID) {
+    public void setNastavnikID(Integer nastavnikID) {
         this.nastavnikID = nastavnikID;
     }
 
-    public int getUcionicaID() {
+    public Integer getUcionicaID() {
         return ucionicaID;
     }
 
-    public void setUcionicaID(int ucionicaID) {
+    public void setUcionicaID(Integer ucionicaID) {
         this.ucionicaID = ucionicaID;
     }
 
-    public int getGrupaID() {
+    public Integer getGrupaID() {
         return groupID;
     }
 
-    public void setGrupaID(int groupID) {
+    public void setGrupaID(Integer groupID) {
         this.groupID = groupID;
     }
 
-    public int getStartTime() {
+    public Integer getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(int startTime) {
+    public void setStartTime(Integer startTime) {
         this.startTime = startTime;
     }
 
-    public int getEndTime() {
+    public Integer getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(int endTime) {
+    public void setEndTime(Integer endTime) {
         this.endTime = endTime;
     }
 
