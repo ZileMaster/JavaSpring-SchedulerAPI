@@ -13,4 +13,6 @@ public interface IUcionicaDAO {
     Ucionica saveUcionica(Ucionica uc);
 
     Boolean deleteUcionica(int id);
+
+    List<Ucionica> GetUcionicaByIsPC(Boolean parametar);
 }

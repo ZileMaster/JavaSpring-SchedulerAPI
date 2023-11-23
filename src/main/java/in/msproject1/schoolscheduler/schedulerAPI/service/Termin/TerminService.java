@@ -1,7 +1,8 @@
 package in.msproject1.schoolscheduler.schedulerAPI.service.Termin;
 
 import in.msproject1.schoolscheduler.schedulerAPI.DAO.Termin.ITerminDAO;
-import in.msproject1.schoolscheduler.schedulerAPI.model.Termin;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.Termin;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.TerminDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,6 +60,38 @@ public class TerminService implements ITerminService{
     public Termin updateTermin(Termin tr) {
         try {
             return terminDAO.saveTermin(tr);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public Boolean deleteTerminByParameters(int vreme, int ucionica, String dan) {
+        if (vreme < 0 || ucionica < 1 || dan.length() < 3)
+        {
+            return false;
+        }
+
+        try {
+            return terminDAO.deleteTerminByParameters(vreme, ucionica, dan);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public List<Termin> GetTerminSorted(int firstParam, int secondParam) {
+        try {
+            return terminDAO.GetTerminsSorted(firstParam, secondParam);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public List<TerminDTO> GetTerminsByDayAndUcionica(String day, int ucionicaID) {
+        try {
+            return terminDAO.GetTerminsByDayAndUcionica(day, ucionicaID);
         } catch (Exception e) {
             throw e;
         }

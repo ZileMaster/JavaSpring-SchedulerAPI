@@ -17,4 +17,6 @@ public interface IUcionicaService {
     Boolean deleteUcionica(int id);
 
     Ucionica updateUcionica(Ucionica uc);
+
+    List<Ucionica> GetUcionicaCustom(Boolean parametar);
 }

@@ -24,8 +24,7 @@ public class dbPredmetDAO implements IPredmetDAO{
             return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return Collections.emptyList(); // or another default value
+            return Collections.emptyList();
         }
     }
 
@@ -38,7 +37,7 @@ public class dbPredmetDAO implements IPredmetDAO{
             return query.uniqueResult();
         }catch (Exception e) {
             e.printStackTrace();
-            return new Predmet(); // or another default value
+            return new Predmet();
         }
     }
 
@@ -67,18 +66,29 @@ public class dbPredmetDAO implements IPredmetDAO{
         try{
             Session currentSession = entityManager.unwrap(Session.class);
             Predmet prToDelete = currentSession.get(Predmet.class, id);
-            // Check if the Tester exists
             if (prToDelete != null) {
-                // Delete the Tester
                 currentSession.remove(prToDelete);
-                return true; // Deletion successful
+                return true;
             } else {
-                return false; // Tester with the given ID not found
+                return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return false; // Deletion failed
+
+            return false;
+        }
+    }
+
+    @Override
+    public Predmet getPredmetByName(String naziv) {
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            Query<Predmet> query = currentSession.createQuery("from Predmet where naziv = :naziv", Predmet.class);
+            query.setParameter("naziv", naziv);
+            return query.uniqueResult();
+        }catch (Exception e) {
+            e.printStackTrace();
+            return new Predmet();
         }
     }
 }

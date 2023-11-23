@@ -66,18 +66,15 @@ public class TesterDAOimplementation implements ITesterDAO{
         try{
             Session currentSession = entityManager.unwrap(Session.class);
             Tester testToDelete = currentSession.get(Tester.class, id);
-            // Check if the Tester exists
             if (testToDelete != null) {
-                // Delete the Tester
                 currentSession.remove(testToDelete);
-                return true; // Deletion successful
+                return true;
             } else {
                 return false; // Tester with the given ID not found
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return false; // Deletion failed
+            return false;
         }
     }
 

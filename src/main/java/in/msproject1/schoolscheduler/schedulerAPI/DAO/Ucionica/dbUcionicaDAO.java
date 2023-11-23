@@ -24,8 +24,7 @@ public class dbUcionicaDAO implements IUcionicaDAO{
                 return query.getResultList();
             } catch (Exception e) {
                 e.printStackTrace();
-                // Handle the exception appropriately
-                return Collections.emptyList(); // or another default value
+                return Collections.emptyList();
             }
     }
 
@@ -38,7 +37,7 @@ public class dbUcionicaDAO implements IUcionicaDAO{
             return query.uniqueResult();
         }catch (Exception e) {
             e.printStackTrace();
-            return new Ucionica(); // or another default value
+            return new Ucionica();
         }
     }
 
@@ -62,18 +61,28 @@ public class dbUcionicaDAO implements IUcionicaDAO{
         try{
             Session currentSession = entityManager.unwrap(Session.class);
             Ucionica ucionicaToDelete = currentSession.get(Ucionica.class, id);
-            // Check if the Tester exists
             if (ucionicaToDelete != null) {
-                // Delete the Tester
                 currentSession.remove(ucionicaToDelete);
-                return true; // Deletion successful
+                return true;
             } else {
-                return false; // Tester with the given ID not found
+                return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return false; // Deletion failed
+            return false;
+        }
+    }
+
+    @Override
+    public List<Ucionica> GetUcionicaByIsPC(Boolean parametar) {
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            Query<Ucionica> query = currentSession.createQuery("from Ucionica where isPC = :parametar", Ucionica.class);
+            query.setParameter("parametar", parametar);
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
         }
     }
 }

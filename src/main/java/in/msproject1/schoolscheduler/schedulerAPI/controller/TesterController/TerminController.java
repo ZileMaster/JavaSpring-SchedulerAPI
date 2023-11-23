@@ -1,6 +1,6 @@
 package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
 
-import in.msproject1.schoolscheduler.schedulerAPI.model.Termin;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.Termin;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Termin.ITerminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,6 +43,19 @@ public class TerminController {
     @DeleteMapping("/delete")
     public Boolean deleteTermin(@RequestParam int id) {
         return terminService.deleteTermin(id);
+    }
+
+    @DeleteMapping("/deleteCustom")
+    public Boolean deleteTerminByRequests(@RequestParam int vreme, @RequestParam String dan, @RequestParam int ucionica) {
+        return terminService.deleteTerminByParameters(vreme, ucionica, dan);
+    }
+
+    @GetMapping("/getSorted")
+    public List<Termin> getTerminsSorted(@RequestParam int firstParam, @RequestParam int secondParam)
+    {
+
+        return terminService.GetTerminSorted(firstParam, secondParam);
+
     }
 
     private void CheckValuesOfTermin(@RequestBody Termin tr) {

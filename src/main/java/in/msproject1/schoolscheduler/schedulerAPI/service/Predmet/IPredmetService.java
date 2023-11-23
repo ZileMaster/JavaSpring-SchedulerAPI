@@ -14,4 +14,6 @@ public interface IPredmetService {
     Boolean deletePredmet(int id);
 
     Predmet updatePredmet(Predmet pred);
+
+    Predmet getPredmetByName(String naziv);
 }

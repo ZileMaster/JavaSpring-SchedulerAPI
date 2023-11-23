@@ -16,6 +16,19 @@ public class UcionicaController {
     @Autowired
     private IUcionicaService ucionicaService;
 
+    @GetMapping("/custom")
+    public List<Ucionica> GetCustomUcionice(@RequestParam int isPC){
+        Boolean parametar;
+        if(isPC == 0){
+            parametar = false;
+        }else
+        {
+            parametar = true;
+        }
+
+        return ucionicaService.GetUcionicaCustom(parametar);
+    }
+
     @GetMapping("/all")
     public List<Ucionica> getUcionice() {
         return ucionicaService.GetUcionicaTables();

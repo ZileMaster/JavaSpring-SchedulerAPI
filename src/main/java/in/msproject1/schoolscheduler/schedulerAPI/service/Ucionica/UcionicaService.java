@@ -63,4 +63,13 @@ public class UcionicaService implements IUcionicaService{
             throw e;
         }
     }
+
+    @Override
+    public List<Ucionica> GetUcionicaCustom(Boolean parametar) {
+        try {
+            return ucionicaDAO.GetUcionicaByIsPC(parametar);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

@@ -12,4 +12,6 @@ public interface IPredmetDAO {
     Predmet savePredmet(Predmet tr);
 
     Boolean deletePredmet(int id);
+
+    Predmet getPredmetByName(String naziv);
 }

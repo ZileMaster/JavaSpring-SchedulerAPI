@@ -24,8 +24,7 @@ public class dbGrupaDAO implements IGrupaDAO{
             return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return Collections.emptyList(); // or another default value
+            return Collections.emptyList();
         }
     }
 
@@ -38,7 +37,7 @@ public class dbGrupaDAO implements IGrupaDAO{
             return query.uniqueResult();
         }catch (Exception e) {
             e.printStackTrace();
-            return new Grupa(); // or another default value
+            return new Grupa();
         }
     }
 
@@ -62,18 +61,15 @@ public class dbGrupaDAO implements IGrupaDAO{
         try{
             Session currentSession = entityManager.unwrap(Session.class);
             Grupa groupToDelete = currentSession.get(Grupa.class, id);
-            // Check if the Tester exists
             if (groupToDelete != null) {
-                // Delete the Tester
                 currentSession.remove(groupToDelete);
-                return true; // Deletion successful
+                return true;
             } else {
-                return false; // Tester with the given ID not found
+                return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return false; // Deletion failed
+            return false;
         }
     }
 }

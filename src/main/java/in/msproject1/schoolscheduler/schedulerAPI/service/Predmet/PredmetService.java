@@ -63,4 +63,13 @@ public class PredmetService implements IPredmetService{
             throw e;
         }
     }
+
+    @Override
+    public Predmet getPredmetByName(String naziv) {
+        try {
+            return predmetDAO.getPredmetByName(naziv);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

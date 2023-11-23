@@ -26,6 +26,11 @@ public class PredmetController {
         return predmetService.savePredmet(pr);
     }
 
+    @GetMapping("/byName")
+    public Predmet getPredmetByName(@RequestBody String naziv){
+        return predmetService.getPredmetByName(naziv);
+    }
+
     @PutMapping("/update")
     public Predmet updatePredmet(@RequestBody Predmet pr) {
         return predmetService.updatePredmet(pr);

@@ -34,8 +34,7 @@ public class dbNastavnikDAO implements INastavnikDAO {
             return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return Collections.emptyList(); // or another default value
+            return Collections.emptyList();
         }
     }
 
@@ -48,7 +47,7 @@ public class dbNastavnikDAO implements INastavnikDAO {
             return (Nastavnik) query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
-            return (Nastavnik) new Nastavnik(); // or another default value
+            return (Nastavnik) new Nastavnik();
         }
     }
 
@@ -72,18 +71,16 @@ public class dbNastavnikDAO implements INastavnikDAO {
         try{
             Session currentSession = entityManager.unwrap(Session.class);
             Nastavnik nastToDelete = currentSession.get(Nastavnik.class, id);
-            // Check if the Tester exists
+
             if (nastToDelete != null) {
-                // Delete the Tester
                 currentSession.remove(nastToDelete);
-                return true; // Deletion successful
+                return true;
             } else {
-                return false; // Tester with the given ID not found
+                return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception appropriately
-            return false; // Deletion failed
+            return false;
         }
     }
 

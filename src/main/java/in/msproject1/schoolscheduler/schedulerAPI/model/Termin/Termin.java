@@ -1,4 +1,4 @@
-package in.msproject1.schoolscheduler.schedulerAPI.model;
+package in.msproject1.schoolscheduler.schedulerAPI.model.Termin;
 
 import jakarta.persistence.*;
 
