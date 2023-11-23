@@ -96,4 +96,31 @@ public class TerminService implements ITerminService{
             throw e;
         }
     }
+
+    @Override
+    public List<TerminDTO> GetTerminsByGroup(int groupID) {
+        try {
+            return terminDAO.GetTerminsByGroup(groupID);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public List<TerminDTO> GetTerminsByNastavnik(int nastavnikID) {
+        try {
+            return terminDAO.GetTerminsByNastavnik(nastavnikID);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public List<TerminDTO> GetTerminsByPredmetID(int predmetID) {
+        try {
+            return terminDAO.GetTerminsByPredmet(predmetID);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

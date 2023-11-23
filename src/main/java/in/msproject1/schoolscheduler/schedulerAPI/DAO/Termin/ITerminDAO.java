@@ -19,4 +19,10 @@ public interface ITerminDAO {
     List<Termin> GetTerminsSorted(int firstParam, int secondParam);
 
     List<TerminDTO> GetTerminsByDayAndUcionica(String day, int ucionicaID);
+
+    List<TerminDTO> GetTerminsByGroup(int groupID);
+
+    List<TerminDTO> GetTerminsByNastavnik(int nastavnikID);
+
+    List<TerminDTO> GetTerminsByPredmet(int predmetID);
 }

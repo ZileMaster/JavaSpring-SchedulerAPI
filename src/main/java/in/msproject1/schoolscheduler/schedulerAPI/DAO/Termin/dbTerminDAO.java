@@ -7,6 +7,7 @@ import in.msproject1.schoolscheduler.schedulerAPI.DAO.Ucionica.IUcionicaDAO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Grupa;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik.Nastavnik;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.Predmet;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.PredmetRequestDTO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.Termin;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.TerminDTO;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Ucionica;
@@ -190,9 +191,7 @@ public class dbTerminDAO implements ITerminDAO{
                             + "WHEN 'Friday' THEN 5 "
                             + "ELSE 6 END, t.startTime";
                     break;
-                // Add more cases for other parameters as needed
                 default:
-                    // Handle invalid firstParam value or provide a default sorting strategy
                     break;
             }
 
@@ -209,6 +208,162 @@ public class dbTerminDAO implements ITerminDAO{
 
     @Override
     public List<TerminDTO> GetTerminsByDayAndUcionica(String day, int ucionicaID) {
-        return null;
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            List<Object[]> result = currentSession.createQuery(
+                            "select t.day, CONCAT(t.startTime, '-', t.endTime), n.Zvanje, n.ime, n.prezime, p.naziv, p.studijskiProgram, p.ESPB, g.grupa, u.broj " +
+                                    "from Termin t " +
+                                    "join Predmet p on t.predmetID = p.id " +
+                                    "join Nastavnik n on t.nastavnikID = n.nastavnikID " +
+                                    "join Grupa g on t.groupID = g.groupID " +  // Corrected join condition
+                                    "join Ucionica u on t.ucionicaID = u.ucionicaID " +
+                                    "where t.day = :day and t.ucionicaID = :ucionicaID", Object[].class)
+                    .setParameter("day", day)
+                    .setParameter("ucionicaID", ucionicaID)
+                    .getResultList();
+
+            List<TerminDTO> terminDTOs = new ArrayList<>();
+
+            for (Object[] row : result) {
+
+                String dan = row[0].toString();
+                String hours = row[1].toString();
+                String nastavnik = row[2].toString() + " " + row[3].toString() + " " + row[4].toString();
+
+                PredmetRequestDTO pred= new PredmetRequestDTO(row[5].toString(), row[6].toString(), Integer.parseInt(row[7].toString()));
+
+                int gr = (Integer) row[8];
+                int uc = (Integer) row[9];
+
+                TerminDTO term = new TerminDTO(dan, hours, nastavnik, pred, gr, uc);
+
+                terminDTOs.add(term);
+            }
+
+            return terminDTOs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<TerminDTO> GetTerminsByGroup(int groupID) {
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            List<Object[]> result = currentSession.createQuery(
+                            "select t.day, CONCAT(t.startTime, '-', t.endTime), n.Zvanje, n.ime, n.prezime, p.naziv, p.studijskiProgram, p.ESPB, g.grupa, u.broj " +
+                                    "from Termin t " +
+                                    "join Predmet p on t.predmetID = p.id " +
+                                    "join Nastavnik n on t.nastavnikID = n.nastavnikID " +
+                                    "join Grupa g on t.groupID = g.groupID " +  // Corrected join condition
+                                    "join Ucionica u on t.ucionicaID = u.ucionicaID " +
+                                    "where t.groupID = :group", Object[].class)
+                    .setParameter("group", groupID)
+                    .getResultList();
+
+            List<TerminDTO> terminDTOs = new ArrayList<>();
+
+            for (Object[] row : result) {
+
+                String dan = row[0].toString();
+                String hours = row[1].toString();
+                String nastavnik = row[2].toString() + " " + row[3].toString() + " " + row[4].toString();
+
+                PredmetRequestDTO pred= new PredmetRequestDTO(row[5].toString(), row[6].toString(), Integer.parseInt(row[7].toString()));
+
+                int gr = (Integer) row[8];
+                int uc = (Integer) row[9];
+
+                TerminDTO term = new TerminDTO(dan, hours, nastavnik, pred, gr, uc);
+
+                terminDTOs.add(term);
+            }
+
+            return terminDTOs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<TerminDTO> GetTerminsByNastavnik(int nastavnikID) {
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            List<Object[]> result = currentSession.createQuery(
+                            "select t.day, CONCAT(t.startTime, '-', t.endTime), n.Zvanje, n.ime, n.prezime, p.naziv, p.studijskiProgram, p.ESPB, g.grupa, u.broj " +
+                                    "from Termin t " +
+                                    "join Predmet p on t.predmetID = p.id " +
+                                    "join Nastavnik n on t.nastavnikID = n.nastavnikID " +
+                                    "join Grupa g on t.groupID = g.groupID " +  // Corrected join condition
+                                    "join Ucionica u on t.ucionicaID = u.ucionicaID " +
+                                    "where t.nastavnikID = :nastavnik", Object[].class)
+                    .setParameter("nastavnik", nastavnikID)
+                    .getResultList();
+
+            List<TerminDTO> terminDTOs = new ArrayList<>();
+
+            for (Object[] row : result) {
+
+                String dan = row[0].toString();
+                String hours = row[1].toString();
+                String nastavnik = row[2].toString() + " " + row[3].toString() + " " + row[4].toString();
+
+                PredmetRequestDTO pred= new PredmetRequestDTO(row[5].toString(), row[6].toString(), Integer.parseInt(row[7].toString()));
+
+                int gr = (Integer) row[8];
+                int uc = (Integer) row[9];
+
+                TerminDTO term = new TerminDTO(dan, hours, nastavnik, pred, gr, uc);
+
+                terminDTOs.add(term);
+            }
+
+            return terminDTOs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<TerminDTO> GetTerminsByPredmet(int predmetID) {
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            List<Object[]> result = currentSession.createQuery(
+                            "select t.day, CONCAT(t.startTime, '-', t.endTime), n.Zvanje, n.ime, n.prezime, p.naziv, p.studijskiProgram, p.ESPB, g.grupa, u.broj " +
+                                    "from Termin t " +
+                                    "join Predmet p on t.predmetID = p.id " +
+                                    "join Nastavnik n on t.nastavnikID = n.nastavnikID " +
+                                    "join Grupa g on t.groupID = g.groupID " +  // Corrected join condition
+                                    "join Ucionica u on t.ucionicaID = u.ucionicaID " +
+                                    "where t.predmetID = :predmet", Object[].class)
+                    .setParameter("predmet", predmetID)
+                    .getResultList();
+
+            List<TerminDTO> terminDTOs = new ArrayList<>();
+
+            for (Object[] row : result) {
+
+                String dan = row[0].toString();
+                String hours = row[1].toString();
+                String nastavnik = row[2].toString() + " " + row[3].toString() + " " + row[4].toString();
+
+                PredmetRequestDTO pred= new PredmetRequestDTO(row[5].toString(), row[6].toString(), Integer.parseInt(row[7].toString()));
+
+                int gr = (Integer) row[8];
+                int uc = (Integer) row[9];
+
+                TerminDTO term = new TerminDTO(dan, hours, nastavnik, pred, gr, uc);
+
+                terminDTOs.add(term);
+            }
+
+            return terminDTOs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 }

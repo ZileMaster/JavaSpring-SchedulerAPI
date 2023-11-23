@@ -21,4 +21,10 @@ public interface ITerminService {
     List<Termin> GetTerminSorted(int firstParam, int secondParam);
 
     List<TerminDTO> GetTerminsByDayAndUcionica(String day, int ucionicaID);
+
+    List<TerminDTO> GetTerminsByGroup(int groupID);
+
+    List<TerminDTO> GetTerminsByNastavnik(int nastavnikID);
+
+    List<TerminDTO> GetTerminsByPredmetID(int predmetID);
 }

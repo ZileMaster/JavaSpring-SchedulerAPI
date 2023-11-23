@@ -22,5 +22,19 @@ public class RasporedController {
     {
         return terminServ.GetTerminsByDayAndUcionica(day, UcionicaID);
     }
-
+    @GetMapping("/getByGroup")
+    public List<TerminDTO> GetTerminsByGroup(@RequestParam int groupID)
+    {
+        return terminServ.GetTerminsByGroup(groupID);
+    }
+    @GetMapping("/getByNastavnik")
+    public List<TerminDTO> GetTerminsByNastavnik(@RequestParam int nastavnikID)
+    {
+        return terminServ.GetTerminsByNastavnik(nastavnikID);
+    }
+    @GetMapping("/getByPredmet")
+    public List<TerminDTO> GetTerminsByPredmet(@RequestParam int predmetID)
+    {
+        return terminServ.GetTerminsByPredmetID(predmetID);
+    }
 }
