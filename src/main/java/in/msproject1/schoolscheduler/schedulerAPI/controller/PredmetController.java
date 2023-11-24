@@ -1,4 +1,4 @@
-package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
+package in.msproject1.schoolscheduler.schedulerAPI.controller;
 
 import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.Predmet;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Predmet.IPredmetService;

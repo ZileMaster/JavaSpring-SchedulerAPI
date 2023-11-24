@@ -12,4 +12,6 @@ public interface IGrupaDAO {
     Grupa saveGrupa(Grupa tr);
 
     Boolean deleteGrupa(int id);
+
+    Grupa getGrupaByNum(int num);
 }

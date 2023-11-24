@@ -15,4 +15,6 @@ public interface IUcionicaDAO {
     Boolean deleteUcionica(int id);
 
     List<Ucionica> GetUcionicaByIsPC(Boolean parametar);
+
+    Ucionica GetUcionicaByNumber(int numClassRoom);
 }

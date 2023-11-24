@@ -85,7 +85,7 @@ public class dbNastavnikDAO implements INastavnikDAO {
     }
 
     @Override
-    public Object GetNastavnikCustom(String ime, String prezime) {
+    public NastavnikDTO GetNastavnikCustom(String ime, String prezime) {
         try {
             Session currentSession = entityManager.unwrap(Session.class);
             Query<Nastavnik> query = currentSession.createQuery("from Nastavnik where ime = :ime and prezime = :prezime", Nastavnik.class);
@@ -103,6 +103,7 @@ public class dbNastavnikDAO implements INastavnikDAO {
 
                 retval.setIme(nastavnik.getIme());
                 retval.setPrezime(nastavnik.getPrezime());
+                retval.setId(nastavnik.getNastavnikID());
 
                 List<Predmet> predmeti = new ArrayList<>();
                 for ( int num : predmetIds) {

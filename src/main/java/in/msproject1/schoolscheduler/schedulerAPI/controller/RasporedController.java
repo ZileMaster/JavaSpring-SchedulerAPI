@@ -1,12 +1,14 @@
-package in.msproject1.schoolscheduler.schedulerAPI.controller.TesterController;
+package in.msproject1.schoolscheduler.schedulerAPI.controller;
 
+import com.sun.net.httpserver.HttpContext;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.TerminDTO;
 import in.msproject1.schoolscheduler.schedulerAPI.service.Termin.ITerminService;
+import in.msproject1.schoolscheduler.schedulerAPI.service.Termin.TerminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -36,5 +38,26 @@ public class RasporedController {
     public List<TerminDTO> GetTerminsByPredmet(@RequestParam int predmetID)
     {
         return terminServ.GetTerminsByPredmetID(predmetID);
+    }
+
+    @PostMapping("/enterByCSV")
+    public Boolean enterEntriesByCSV(@RequestParam("file") MultipartFile file)
+    {
+        if(file.isEmpty()) {
+            throw new HttpClientErrorException(HttpStatus.NOT_FOUND, "Invalid values given.");
+        }
+        try {
+
+            System.out.println("Uploaded CSV content:");
+            System.out.println(new String(file.getBytes()));
+
+            terminServ.InsertStuffByCSV(file);
+
+            return true;
+        } catch (Exception e) {
+            // Handle exceptions, such as invalid CSV format, processing errors, etc.
+            e.printStackTrace();
+            return false;
+        }
     }
 }

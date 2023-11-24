@@ -2,10 +2,13 @@ package in.msproject1.schoolscheduler.schedulerAPI.service.Termin;
 
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.Termin;
 import in.msproject1.schoolscheduler.schedulerAPI.model.Termin.TerminDTO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface ITerminService {
+    void InsertStuffByCSV(MultipartFile file);
+
     List<Termin> GetTerminTables();
 
     Termin GetTermin(int id);

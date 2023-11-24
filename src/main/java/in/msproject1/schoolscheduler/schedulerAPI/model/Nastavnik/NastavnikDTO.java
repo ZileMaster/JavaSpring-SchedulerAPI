@@ -5,7 +5,16 @@ import in.msproject1.schoolscheduler.schedulerAPI.model.Predmet.Predmet;
 import java.util.List;
 
 public class NastavnikDTO {
+    private int id;
     private String ime;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     private String prezime;
 

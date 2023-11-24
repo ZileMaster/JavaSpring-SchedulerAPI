@@ -72,4 +72,17 @@ public class dbGrupaDAO implements IGrupaDAO{
             return false;
         }
     }
+
+    @Override
+    public Grupa getGrupaByNum(int num) {
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            Query<Grupa> query = currentSession.createQuery("from Grupa where grupa = :br", Grupa.class);
+            query.setParameter("br", num);
+            return query.uniqueResult();
+        }catch (Exception e) {
+            e.printStackTrace();
+            return new Grupa();
+        }
+    }
 }

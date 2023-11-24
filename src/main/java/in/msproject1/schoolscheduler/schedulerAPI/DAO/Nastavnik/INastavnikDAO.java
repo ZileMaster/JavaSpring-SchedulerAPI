@@ -1,6 +1,7 @@
 package in.msproject1.schoolscheduler.schedulerAPI.DAO.Nastavnik;
 
 import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik.Nastavnik;
+import in.msproject1.schoolscheduler.schedulerAPI.model.Nastavnik.NastavnikDTO;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ public interface INastavnikDAO {
 
     Boolean deleteNastavnik(int id);
 
-    Object GetNastavnikCustom(String ime, String prezime);
+    NastavnikDTO GetNastavnikCustom(String ime, String prezime);
 }

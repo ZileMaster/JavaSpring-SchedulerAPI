@@ -85,4 +85,17 @@ public class dbUcionicaDAO implements IUcionicaDAO{
             return Collections.emptyList();
         }
     }
+
+    @Override
+    public Ucionica GetUcionicaByNumber(int numClassRoom) {
+        try {
+            Session currentSession = entityManager.unwrap(Session.class);
+            Query<Ucionica> query = currentSession.createQuery("from Ucionica where broj = :numClassRoom", Ucionica.class);
+            query.setParameter("numClassRoom", numClassRoom);
+            return query.uniqueResult();
+        }catch (Exception e) {
+            e.printStackTrace();
+            return new Ucionica();
+        }
+    }
 }
